@@ -54,4 +54,13 @@ _As a [user role], I want [feature/goal], so that [reason]._
     **Notes:**
     - Raise alert message with the error.
 
-   
+4. **Store user data**
+   As a user, I want my account details to be saved in local storage so that the date persists between app sessions.
+
+   **Acceptance criteria:**
+   1. Demonstrate the storage of user details
+  
+   **Priority:** High
+
+   **Notes:**
+   - Store the user details in local storage
