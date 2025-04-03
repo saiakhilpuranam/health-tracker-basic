@@ -3,7 +3,8 @@
 This file tracks all the user stories for the app. All the user stories need to be added in the template defined below.
 
 ## User story template
-**Title:**
+**Representative title**
+
 _As a [user role], I want [feature/goal], so that [reason]._
 
 **Acceptance criteria:**
@@ -17,27 +18,39 @@ _As a [user role], I want [feature/goal], so that [reason]._
 
 
 ## Registration and login page
-1.  **Title: Account registration**
+1.  **Account registration**
+
     As a user, I want to register with my name, email id and password so that I can create a new account and access the health tracking features.
+    
     **Acceptance criteria:**
     1. Screen with appropriate elements for new user registration
+
     **Priority:** High
+
     **Notes:**
     - User credentials to be stored appropriately.
 
-2.  **Title: Account login**
-    As a user, I want to login using my email id and password so that I can access my account
-    **Acceptance criteria:**
-   1. Screen with appropriate elements for user login
-   **Priority:** High
-   **Notes:**
-   - Validate user credentials
+2.  **Account login**
 
-3.  **Title: Error feedback on login**
+    As a user, I want to login using my email id and password so that I can access my account
+
+    **Acceptance criteria:**
+    1. Screen with appropriate elements for user login
+
+    **Priority:** High
+
+    **Notes:**
+    - Validate user credentials
+
+3.  **Error feedback on login**
+
     As a user, I want to receive a message if I enter wrong credentials so that I know my login attempt was unsuccessful.
+
     **Acceptance criteria:**
     1. Display of the error message on the login screen when wrong credentials are entered
+
     **Priority:** High
+
     **Notes:**
     - Raise alert message with the error.
 
