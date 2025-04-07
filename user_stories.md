@@ -64,3 +64,28 @@ _As a [user role], I want [feature/goal], so that [reason]._
 
    **Notes:**
    - Store the user details in local storage
+
+## Home Screen
+
+1. **Medicine reminders**
+
+   As a user, I want to be able to add reminders for medicines on the home screen so that I can make to sure to take my medications on time.
+
+   **Acceptance criteria:**
+   1. A medicine reminder tab in the homescreen
+
+   **Priority:** High
+
+   **Notes:**
+   - Add a tab to the homescreen
+3. **Parameter monitoring**
+
+   As a user, I want to be able to see various health parameters such as BP, blood glucose, etc., on the home screen so that I can track my health.
+
+   **Acceptance criteria:**
+   1. A health parameter monitoring tab in the homescreen.
+  
+   **Priority:*** High
+
+   **Notes:**
+   - Add a tab to the home screen
