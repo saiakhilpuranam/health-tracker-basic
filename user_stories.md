@@ -102,8 +102,9 @@ _As a [user role], I want [feature/goal], so that [reason]._
    **Priority:** High
 
    **Notes:**
-   -
-2. **Edit profile**
+   - Have the menu as a simple list of options.
+   
+3. **Edit profile**
 
    As a user, I want to be able to edit profile from the menu, so that I can make sure my profile is correct and upto date.
 
@@ -113,8 +114,9 @@ _As a [user role], I want [feature/goal], so that [reason]._
    **Priority:** High
 
    **Notes:**
-   -
-3. **Sign out from menu**
+   - Make in place editable profile page.
+   
+4. **Sign out from menu**
 
    As a user, I want to sign out of my account using an option in the menu, so that I can securely log out when I'm finished using the app.
 
@@ -124,4 +126,42 @@ _As a [user role], I want [feature/goal], so that [reason]._
    **Priority:** High
 
    **Notes:**
-   -
+   - Implement sign out functionality
+  
+## Profile page
+
+1. **View personal information**
+
+   As a user, I want view my saved name, email id and age on my profile page, so that I see the details provided during registration.
+
+   **Acceptance criteria:**
+   1. Screen to view personal details
+
+   **Priority:** High
+
+   **Notes:**
+   - The details need to be clearly displayed with appropriate margins
+
+2. **Edit personal information**
+
+   As a user, I want edit my saved name, email id and age on my profile page, so that I keep my details upto date.
+
+   **Acceptance criteria:**
+   1. Screen to edit personal details
+
+   **Priority:** High
+
+   **Notes:**
+   - Implement a form to modify details.
+  
+3. **Save updated personal information**
+
+   As a user, I want the changes I make to my profile to be saved, so that my updated details are stored and reflected throughout the app.
+
+   **Acceptance criteria:**
+   1. Screen to save the updated personal details
+
+   **Priority:** High
+
+   **Notes:**
+   - Implement save fucntionality in the same details edit form
