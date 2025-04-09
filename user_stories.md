@@ -229,3 +229,32 @@ _As a [user role], I want [feature/goal], so that [reason]._
 
    **Notes:**
    - An option can be provided for each tracker in its card.
+
+
+## Notifications page
+
+1. **Enable/Disable notifications**
+
+   As a user, I want to be able to enable or disable notifications for the app, so that I can choose whether ot not to receive reminders for medicines
+
+   **Acceptance criteria:**
+   1. Screen to modify notifications
+
+   **Priority:** High
+
+   **Notes:**
+   - Implement a blank notification on/off
+
+## Integrate persistent data
+
+1. **Save login details**
+
+   As a user, I want my data like li=ogin state to persist across sessions so that I don't need to re-enter details every time
+
+   **Acceptance criteria:**
+   1. Impement data persistence
+
+   **Priority:** High
+
+   **Notes:**
+   - Implement using local storage
