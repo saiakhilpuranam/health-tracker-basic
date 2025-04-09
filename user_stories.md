@@ -89,3 +89,39 @@ _As a [user role], I want [feature/goal], so that [reason]._
 
    **Notes:**
    - Add a tab to the home screen
+
+## Menu
+
+1. **Access menu options**
+
+   As a user, I want to access a menu with options to edit my profile and sign out, so that I can manage my profile and sign out of the application.
+
+   **Acceptance criteria:**
+   1. A menu with two options is to be developed
+
+   **Priority:** High
+
+   **Notes:**
+   -
+2. **Edit profile**
+
+   As a user, I want to be able to edit profile from the menu, so that I can make sure my profile is correct and upto date.
+
+   **Acceptance criteria:**
+   1. Profile edit page to be developed
+
+   **Priority:** High
+
+   **Notes:**
+   -
+3. **Sign out from menu**
+
+   As a user, I want to sign out of my account using an option in the menu, so that I can securely log out when I'm finished using the app.
+
+   **Acceptance criteria:**
+   1. Signout functionality in menu
+
+   **Priority:** High
+
+   **Notes:**
+   -
