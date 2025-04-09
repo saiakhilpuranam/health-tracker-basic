@@ -164,4 +164,68 @@ _As a [user role], I want [feature/goal], so that [reason]._
    **Priority:** High
 
    **Notes:**
-   - Implement save fucntionality in the same details edit form
+   - Implement save functionality in the same details edit form
+  
+## Medicine reminder page
+
+1. **Add new meidicine reminder**
+
+   As a user, I want to add new medicine reminder on the medicine reminder page, so that I can track new medicines on the app.
+
+   **Acceptance criteria:**
+   1. Screen to add new medicine reminders
+
+   **Priority:** High
+
+   **Notes:**
+   - Can implement this through a floating action button.
+
+2. **Delete meidicine reminder**
+
+   As a user, I want to delete medicine reminder on the medicine reminder page, so that I can remove reminders which are no longer required.
+
+   **Acceptance criteria:**
+   1. Option to delete for each reminder.
+
+   **Priority:** High
+
+   **Notes:**
+   - An option can be provided for each reminder in its card.
+
+## Parameters tracking page
+
+1. **Add new parameter to tracker**
+
+   As a user, I want to add new parameter to the tracking page, so that I can track multiple parameters
+
+   **Acceptance criteria:**
+   1. Screen to add new parameter to track
+
+   **Priority:** High
+
+   **Notes:**
+   - Can implement this through a floating action button.
+
+2. **Add value to a parameter in tracker**
+
+   As a user, I want to add new value to a parameter to the tracking page, so that I can maintain the update and maintain parameter history
+
+   **Acceptance criteria:**
+   1. Screen to add new value to the parameter
+
+   **Priority:** High
+
+   **Notes:**
+   - Can implement this through an option to add new value in the parameter card.
+
+3. **Delete parameter from tracker**
+
+   As a user, I want to delete a parameter from the tracking page, so that I can remove parameters which are no longer required.
+
+   **Acceptance criteria:**
+   1. Option to delete for each parameter.
+
+   **Priority:** High
+
+   **Notes:**
+   - An option can be provided for each tracker in its card.
