@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:health_track/models/countries.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -14,7 +15,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  String _country = 'India';
+  List<String> _countries = [];
+
   double _age = 60;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchCountries();
+  }
 
   @override
   void dispose() {
@@ -22,6 +32,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _fetchCountries() async {
+    List<String> countriesList = await fetchCountries();
+
+    setState(() {
+      _countries = countriesList;
+      _countries.sort();
+      _country = _countries.isNotEmpty ? _countries[0] : 'India';
+    });
   }
 
   bool validateForm() {
@@ -37,6 +57,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     List<String>? passwords = prefs.getStringList('passwords');
     List<String>? names = prefs.getStringList('names');
     List<String>? ages = prefs.getStringList('ages');
+    List<String>? countries = prefs.getStringList('countries');
 
     if (usernames!=null) {
       if (usernames.contains(_emailController.text)) {
@@ -66,10 +87,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ages = [_age.toString()];
     }
 
+    if (countries!=null) {
+      countries.add(_country);
+    } else {
+      countries = [_country];
+    }
+
     await prefs.setStringList('usernames', usernames);
     await prefs.setStringList('passwords', passwords);
     await prefs.setStringList('names', names);
     await prefs.setStringList('ages', ages);
+    await prefs.setStringList('countries', countries);
 
     return true;
   }
@@ -145,7 +173,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   });
                 }
               ),
-              // White space between age slider and register button
+              // White space between age slider and country drop down
+              const SizedBox(height: 25),
+              // Country list drop down
+              _buildCountryDropDown(),
+              // White space between country drop down and register button
               const SizedBox(height: 100),
               // Register button
               Center(
@@ -193,6 +225,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
         ),
+      ),
+    );
+  }
+
+  Widget _buildCountryDropDown() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.black),
+      ),
+      child: DropdownButton<String>(
+        value: _country,
+        icon: Icon(Icons.arrow_drop_down, color: Color(0xFF575757)),
+        isExpanded: true,
+        underline: const SizedBox(),
+        items: _countries.map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (newValue) {
+          setState(() {
+            _country = newValue!;
+          });
+        }
       ),
     );
   }

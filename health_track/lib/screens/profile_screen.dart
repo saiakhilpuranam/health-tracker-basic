@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:health_track/models/countries.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -18,13 +19,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController _passwordController = TextEditingController();
   double _age = 21;
 
+  String country = 'India';
+
+
   // User data
   late String? currentUsername;
   late List<String>? usernames;
   late List<String>? passwords;
   late List<String>? names;
   late List<String>? ages;
+   List<String>? countries = [];
   late int userIdx;
+
+  // Country drop down
+  String selectedCountry = 'India';
+  List<String> availableCountries = [];
 
   Future<bool> _loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -33,6 +42,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     passwords = prefs.getStringList('passwords');
     names = prefs.getStringList('names');
     ages = prefs.getStringList('ages');
+    countries = prefs.getStringList('countries');
 
     debugPrint('Loaded shared preferences');
     //debugPrint(usernames.toString());
@@ -44,15 +54,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _nameController.text = names![userIdx];
       _passwordController.text = passwords![userIdx];
       _age = double.parse(ages![userIdx]);
+      country = countries![userIdx];
+      selectedCountry = country;
     });
 
     return true;
+  }
+
+  Future<void> _fetchCountries() async {
+    List<String> countriesList = await fetchCountries();
+
+    setState(() {
+      availableCountries = countriesList;
+      availableCountries.sort();
+      //_country = _countries!.isNotEmpty ? _countries![0] : 'India';
+    });
   }
 
   @override
   void initState() {
     super.initState();
     debugPrint('Calling _loadUserData');
+    _fetchCountries();
     _loadUserData();
   }
 
@@ -74,11 +97,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     names![userIdx] = _nameController.text;
     passwords![userIdx] = _passwordController.text;
     ages![userIdx] = _age.toString();
+    countries![userIdx] = country;
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setStringList('names', names!);
     await prefs.setStringList('passwords', passwords!);
     await prefs.setStringList('ages', ages!);
+    await prefs.setStringList('countries', countries!);
     debugPrint('Saved data');
   }
 
@@ -135,9 +160,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   });
                 }
               ),
-              // White space between age slider and register button
+              // White space between age slider and countries drop down
+              const SizedBox(height: 25),
+              // Countries drop down
+              _buildCountryDropDown(),
+              // White space between countries drop down and save button
               const SizedBox(height: 100),
-              // Register button
+              // Save button
               Center(
                 child: ElevatedButton(
                   onPressed: _save,
@@ -183,6 +212,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
         ),
+      ),
+    );
+  }
+
+  Widget _buildCountryDropDown() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.black),
+      ),
+      child: DropdownButton<String>(
+        value: selectedCountry,
+        icon: Icon(Icons.arrow_drop_down, color: Color(0xFF575757)),
+        isExpanded: true,
+        underline: const SizedBox(),
+        items: availableCountries.map((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        onChanged: (newValue) {
+          setState(() {
+            selectedCountry = newValue!;
+            country = selectedCountry;
+          });
+        }
       ),
     );
   }

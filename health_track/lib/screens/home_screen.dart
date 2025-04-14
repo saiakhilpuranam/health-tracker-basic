@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:health_track/screens/profile_screen.dart';
 import 'package:health_track/screens/login_screen.dart';
+import 'package:health_track/screens/notifications_screen.dart';
 import 'package:health_track/screens/reminder_screen.dart';
 import 'package:health_track/providers/reminder_provider.dart';
 import 'package:health_track/screens/parameter_screen.dart';
@@ -71,6 +72,17 @@ class _HomeScreenState extends State<HomeScreen>
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder:(context) => ProfileScreen(),)
+                );
+              }
+            ),
+            ListTile(
+              leading: Icon(Icons.person, color: Color(0xFF623CD7)),
+              title: Text('Notifications'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder:(context) => NotificationsScreen(),)
                 );
               }
             ),
